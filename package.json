@@ -1,0 +1,25 @@
+{
+  "name": "express-server-error",
+  "version": "0.0.1",
+  "description": "Simple and predictable HTTP error handling for server environments.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rlindskog/express-server-error.git"
+  },
+  "keywords": [
+    "express-server-error",
+    "express",
+    "server",
+    "error"
+  ],
+  "author": "Ryan Lindskog",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rlindskog/express-server-error/issues"
+  },
+  "homepage": "https://github.com/rlindskog/express-server-error#readme"
+}

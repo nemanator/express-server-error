@@ -58,5 +58,7 @@ Example
 	    console.log(error.response.data)
 	  }
 	}
+	
+	getData('/')
 
 Used in [vueniverse](https://github.com/rlindskog/vueniverse).

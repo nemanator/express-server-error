@@ -49,14 +49,14 @@ Example
 	// client.js
 	import axios from 'axios'
 	
-	async function getData() {
+	async function getData(url) {
 	  try {
-	    let { data } = await axios.get('/api')
+	    let { data } = await axios.get(url)
+	    console.log(data)
 	  } catch (error) {
 	    // happily handle all errors the same way!
 	    console.log(error.response.data)
 	  }
 	}
-	getData()
 
 Used in [vueniverse](https://github.com/rlindskog/vueniverse).

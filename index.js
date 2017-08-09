@@ -1,4 +1,4 @@
-export class ServerError extends Error {
+class ServerError extends Error {
   constructor (message = 'Internal Server Error.', { status = 500, name = 'ServerError', log = true } = {}) {
     super(message)
     this.name = name
@@ -8,7 +8,7 @@ export class ServerError extends Error {
   }
 }
 
-export function handleServerErrors (req, res, next) {
+function handleServerErrors (req, res, next) {
   res.handleServerError = error => {
     if (error.expressServerError) {
       if (error.log === true) console.error(error)
@@ -21,3 +21,5 @@ export function handleServerErrors (req, res, next) {
   }
   next()
 }
+
+module.exports = { ServerError, handleServerErrors }

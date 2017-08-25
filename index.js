@@ -16,7 +16,8 @@ let handleServerErrors = customErrors => (req, res, next) => {
     } else if (error.name in customErrors) {
       let customError = customErrors[error.name](error)
       if (customError.log === true) console.error(error)
-      res.status(customError.status).json({ name: customError.name || error.name, message: customError.message })
+      let name = customError.name !== 'ServerError' ? customError.name : error.name
+      res.status(customError.status).json({ name, message: customError.message })
     } else {
       error.expressServerError = false
       console.error(error)

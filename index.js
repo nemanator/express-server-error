@@ -8,11 +8,14 @@ class ServerError extends Error {
   }
 }
 
-function handleServerErrors (req, res, next) {
+let handleServerErrors = customErrors => (req, res, next) => {
   res.handleServerError = error => {
     if (error.expressServerError) {
       if (error.log === true) console.error(error)
       res.status(error.status).json({ name: error.name, message: error.message })
+    } else if (customErrors.includes(error.name)) {
+      let customError = customErrors[error.name](error)
+      res.status(customError.status).json({ name: customError.name, message: customError.message, log: customError.log })
     } else {
       error.expressServerError = false
       console.error(error)

@@ -13,7 +13,7 @@ let handleServerErrors = customErrors => (req, res, next) => {
     if (error.expressServerError) {
       if (error.log === true) console.error(error)
       res.status(error.status).json({ name: error.name, message: error.message })
-    } else if (error.name in customErrors) {
+    } else if (customErrors && error.name in customErrors) {
       let customError = customErrors[error.name](error)
       if (error.log === true) console.error(error)
       res.status(customError.status).json({ name: customError.name, message: customError.message })

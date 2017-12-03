@@ -1,6 +1,6 @@
 {
   "name": "express-server-error",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "Simple and predictable HTTP error handling for server environments.",
   "main": "index.js",
   "scripts": {
